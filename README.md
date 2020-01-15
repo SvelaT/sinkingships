@@ -1,7 +1,7 @@
-# sinkingships
+# Sinking Ships
 A multiplayer battleship strategy game
 
-### features
+### Features
 
 * Lobby with chat
 * Join players and join queue 
