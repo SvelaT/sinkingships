@@ -8,6 +8,10 @@ Run the server.js on the command line using the command:
 
 node server.js
 
+Then you need to access the localhost on port 8080:
+
+http://localhost:8080/
+
 ### Features
 
 * Lobby with chat
