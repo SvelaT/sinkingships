@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Welcome to the Lobby</h1>
+    <div class="d-flex justify-content-between">
+        <div id="lobby-chat">
+            <p>
+                SERVER : Welcome to the lobby's chatroom!
+            </p>
+        </div>
+        <div id="lobby-players">
+            
+        </div>
+    </div>
+    <div>
+    <% if(login){ %>
+    <button class="btn btn-primary" id="join-lobby" style="margin-top: 10px;">
+        Join the Lobby
+    </button>
+    <% } %>
+    <div class="d-flex" style="margin-top: 10px;">
+        <input type="text" id="message-field" style="width: 88%;">
+        <button class="btn-primary" id="submit-message" style="margin-left: 5px;">Send Message</button>
+    </div>
+    </div>
+    <a class="btn btn-primary" id="find-game" style="margin-top: 10px;" href="/game">
+        Find a Game
+    </a>
+</div>
+<script src="/scripts/lobby.js"></script>

@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Leaderboard</h1>
+
+    <table class="table table-striped" style="margin-top: 40px;">
+        <thead>
+          <tr>
+            <th scope="col">Player</th>
+            <th scope="col">Victories</th> 
+            <th scope="col">Defeats</th>
+            <th scope="col">V/D Ratio</th>
+            <th scope="col">Variance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% leadersList.forEach(function(leader){ %>
+            <tr>
+                <td><%= leader.username %></td>
+                <td><span class="badge badge-success badge-pill"><%= leader.victories %></span></td>
+                <td><span class="badge badge-danger badge-pill"><%= leader.defeats %></span></td>
+                <% if(leader.defeats == 0){ %>
+                <td><span class="badge badge-warning badge-pill"> - </span></td>
+                <% }else{ %>
+                <td><span class="badge badge-warning badge-pill"><%= leader.victories/leader.defeats %></span></td>
+                <% } %>
+                <% if(leader.victories >= leader.defeats){ %>
+                <td><span class="badge badge-success badge-pill"><%= leader.victories-leader.defeats %></span></td>
+                <% }else{ %>
+                <td><span class="badge badge-danger badge-pill"><%= leader.victories-leader.defeats %></span></td>
+                <% } %>
+            </tr> 
+        <% }); %>
+        </tbody>
+      </table>
+</div>

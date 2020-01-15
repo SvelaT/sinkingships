@@ -1,0 +1,31 @@
+<div class="container">
+        <h1>Register</h1>
+        <%- include('partials/messages') %>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" class="form-control" id="username" placeholder ="Enter a new Username..." name="username" value="<%= typeof username != 'undefined' ? username : '' %>">
+                <small id="usernameHelp" class="form-text text-muted" style="display: none;">Username should only have letters and numbers.</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder ="Enter your Email..." name="email" value="<%= typeof email != 'undefined' ? email : '' %>">
+                <small id="emailHelp" class="form-text text-muted" style="display: none;">Please insert a valid email.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder ="Enter a password..." name="password" value="<%= typeof password != 'undefined' ? password : '' %>">
+                <small id="passwordHelp" class="form-text text-muted" style="display: none;">Password should be at least 3 characters long.</small>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder ="Retype your password..." name="confirmPassword" value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : '' %>">
+                <small id="retypeHelp" class="form-text text-muted" style="display: none;">Passwords don't match.</small>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">Register</button>
+        </form>
+        <div style="margin-top: 5px;">
+            <p>Already have an acount? <a href="/login">Go to Login</a></p>
+        </div>
+<div>
+<script src="/scripts/register.js"></script>

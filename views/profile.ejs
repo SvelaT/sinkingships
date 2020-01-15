@@ -1,0 +1,78 @@
+<div class="container">
+    <h1>Welcome, <%= currentUser %></h1>
+    <ul class="list-group" style="margin-top: 40px;">
+        <li class="list-group-item">
+            <h2>Change Password</h2>
+            <%- include('partials/messages') %>
+            <form action="/changepassword" method="POST">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder ="Enter a password..." name="password" value="<%= typeof password != 'undefined' ? password : '' %>">
+                    <small id="passwordHelp" class="form-text text-muted" style="display: none;">Password should be at least 3 characters long.</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder ="Retype your password..." name="confirmPassword" value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : '' %>">
+                    <small id="retypeHelp" class="form-text text-muted" style="display: none;">Passwords don't match.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <h2>Statistics</h2>
+            <table class="table table-sm" style="margin-top: 40px;">
+                <thead>
+                  <tr>
+                    <th scope="col">Victories</th>
+                    <th scope="col">Defeats</th> 
+                    <th scope="col">V/D Ratio</th>
+                    <th scope="col">Variance</th>
+                  </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge badge-success badge-pill"><%= victories %></span></td>
+                    <td><span class="badge badge-danger badge-pill"><%= defeats %></span></td>
+                    <% if(defeats == 0){ %>
+                    <td><span class="badge badge-warning badge-pill"> - </span></td>
+                    <% }else{ %>
+                    <td><span class="badge badge-warning badge-pill"><%= victories/defeats %></span></td>
+                    <% } %>
+                    <% if(victories >= defeats){ %>
+                    <td><span class="badge badge-success badge-pill"><%= victories-defeats %></span></td>
+                    <% }else{ %>
+                    <td><span class="badge badge-danger badge-pill"><%= victories-defeats %></span></td>
+                    <% } %>
+                </tr>
+            </tbody>
+            </table>
+        </li>
+        <li class="list-group-item">
+            <h2>Saved Games</h2>
+            <table class="table table-striped" style="margin-top: 40px;">
+                <thead>
+                  <tr>
+                    <th scope="col">First Player</th>
+                    <th scope="col">Score</th> 
+                    <th scope="col">Second Player</th>
+                    <th scope="col">Score</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+            <tbody>
+            <% gamesList.forEach(function(game){ %>
+                <tr>
+                    <td><%= game.firstPlayer %></td>
+                    <td><%= game.firstPlayerScore %></td>
+                    <td><%= game.secondPlayer %></td>
+                    <td><%= game.secondPlayerScore %></td>
+                    <td><a class="btn btn-primary" href="/game/<%= game.id%>">Continue Game</a></td>
+                </tr>
+            <% }); %>
+            </tbody>
+            </table>
+        </li>
+      </ul>
+</div>
+<script src="/scripts/profile.js"></script>
+

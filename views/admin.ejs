@@ -1,0 +1,19 @@
+<div class="container">
+    <% if(allowed){ %>
+    <h1>Welcome, <%= currentUser %></h1>
+    <ul class="list-group" style="margin-top: 40px;">
+        <%- include('partials/messages') %>
+        <li class="list-group-item">
+            <h2>Clean the Highscores</h2>
+            <a class="btn btn-primary" href="/clean/highscores">Clean</a>
+        </li>
+        <li class="list-group-item">
+            <h2>Clean Saved Games</h2>
+            <a class="btn btn-primary" href="/clean/games">Clean</a>
+        </li>
+    </ul>
+    <% }else{ %>
+    <h1>Warning</h1>
+    <p style="color: red; margin-top: 40px;">You're not allowed to access this page</p>
+    <% } %>
+</div>

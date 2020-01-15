@@ -1,0 +1,110 @@
+<div id="app">
+<div class="container" id="game" style="display: none;">
+    <% if(typeof currentGameId != 'undefined'){ %>
+        <p style="display:none" id="current-game-id"><%= currentGameId %></p>
+    <% } %>
+    <% if(typeof shipsBoard != 'undefined'){ %>
+        <p style="display:none" id="ships-board"><%= shipsBoard %></p>
+    <% } %>
+    <% if(typeof missilesBoard != 'undefined'){ %>
+        <p style="display:none" id="missiles-board"><%= missilesBoard %></p>
+    <% } %>
+    <% if(typeof outcomesBoard != 'undefined'){ %>
+        <p style="display:none" id="outcomes-board"><%= outcomesBoard %></p>
+    <% } %>
+    <% if(typeof enemyMissilesBoard != 'undefined'){ %>
+        <p style="display:none" id="enemy-missiles-board"><%= enemyMissilesBoard %></p>
+    <% } %>
+    <% if(typeof sunkedShips != 'undefined'){ %>
+        <p style="display:none" id="sunked-ships"><%= sunkedShips %></p>
+    <% } %>
+    <% if(typeof mySunkShips != 'undefined'){ %>
+        <p style="display:none" id="my-sunked-ships"><%= mySunkShips %></p>
+    <% } %>
+    <% if(typeof currentGameState != 'undefined'){ %>
+        <p style="display:none" id="current-game-state"><%= currentGameState %></p>
+    <% } %>
+    <% if(typeof enemyPlacedShips != 'undefined'){ %>
+        <p style="display:none" id="enemy-placed-ships"><%= enemyPlacedShips %></p>
+    <% } %>
+    <% if(typeof myTurn != 'undefined'){ %>
+        <p style="display:none" id="my-turn"><%= myTurn %></p>
+    <% } %>
+    <% if(typeof shipsOrientation != 'undefined'){ %>
+        <p style="display:none" id="ships-orientation"><%= shipsOrientation %></p>
+    <% } %>
+    <% if(typeof score != 'undefined'){ %>
+        <p style="display:none" id="score"><%= score %></p>
+    <% } %>
+    <% if(typeof enemyPlayer != 'undefined'){ %>
+        <p style="display:none" id="enemy-player"><%= enemyPlayer %></p>
+    <% } %>
+    <% if(typeof wait != 'undefined'){ %>
+        <p style="display:none" id="wait"><%= wait %></p>
+    <% } %>
+    <% if(typeof joinWithPlayer != 'undefined'){ %>
+        <p style="display:none" id="join-with-player"><%= joinWithPlayer %></p>
+    <% } %>
+    <audio id="water">
+        <source src="/sounds/water.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="placeship">
+        <source src="/sounds/placeship.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="explosion">
+        <source src="/sounds/explosion.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bigexplosion">
+        <source src="/sounds/bigexplosion.mp3" type="audio/mpeg">
+    </audio>
+    <h1>Match</h1>
+    <h2>{{ turn }}</h2>
+    <h3 id="current-state"></h3>
+
+    <div class="game-container">
+        <div class="game-board">
+            <h3>Your Board</h3>
+            <div>
+                <% for(var i = 0; i < 9; i++){ %>
+                    <div class="board-line">
+                        <% for(var j = 0; j < 10; j++){ %>
+                            <div class="tile">
+                                <img class="player-tile" id="player-grid-<%= i%>-<%= j%>" src="/images/tile.png"/>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+            <h6>Game State: {{state}}</h6>
+            <h6>Points: {{points}}</h6>
+            <button class="btn btn-primary" id="forfeit">Forfeit</button>
+            <button class="btn btn-primary" id="save">Save for later</button>
+        </div>
+        <div class="game-board">
+            <h3>Enemy's Board</h3>
+            <div>
+                <% for(var i = 0; i < 9; i++){ %>
+                    <div class="board-line">
+                        <% for(var j = 0; j < 10; j++){ %>
+                            <div class="tile">
+                                <img class="enemy-tile" id="enemy-grid-<%= i%>-<%= j%>" src="/images/tile.png" />
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+            <h6>Points: {{pointsEnemy}}</h6>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="waiting">
+        <h2 style="text-align: center;">Waiting for someone to join the queue.</h2>
+        <div class="loader-container">
+            <div class="lds-dual-ring">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/scripts/game.js"></script>

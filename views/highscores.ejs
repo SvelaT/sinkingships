@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Highscores</h1>
+
+    <table class="table table-striped" style="margin-top: 40px;">
+        <thead>
+          <tr>
+            <th scope="col">First Player</th>
+            <th scope="col">Score</th> 
+            <th scope="col">Score</th>
+            <th scope="col">Second Player</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% scoresList.forEach(function(score){ %>
+            <% if(score.firstPlayerScore > score.secondPlayerScore){ %>
+                <tr>
+                    <td><%= score.firstPlayer %></td>
+                    <td><span class="badge badge-success badge-pill"><%= score.firstPlayerScore %></span></td>
+                    <td><span class="badge badge-danger badge-pill"><%= score.secondPlayerScore %></span></td>
+                    <td><%= score.secondPlayer %></td>
+                </tr>
+            <% } %>  
+            <% if(score.firstPlayerScore < score.secondPlayerScore){ %>
+                <tr>
+                    <td><%= score.firstPlayer %></td>
+                    <td><span class="badge badge-danger badge-pill"><%= score.firstPlayerScore %></span></td>
+                    <td><span class="badge badge-success badge-pill"><%= score.secondPlayerScore %></span></td>
+                    <td><%= score.secondPlayer %></td>
+                </tr>
+            <% } %>   
+            <% if(score.firstPlayerScore == score.secondPlayerScore){ %>
+                <tr>
+                    <td><%= score.firstPlayer %></td>
+                    <td><span class="badge badge-warning badge-pill"><%= score.firstPlayerScore %></span></td>
+                    <td><span class="badge badge-warning badge-pill"><%= score.secondPlayerScore %></span></td>
+                    <td><%= score.secondPlayer %></td>
+                </tr>
+            <% } %>   
+        <% }); %>
+        </tbody>
+      </table>
+</div>

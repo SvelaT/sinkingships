@@ -1,0 +1,96 @@
+.game-container {
+  display: flex;
+}
+.game-container .game-board {
+  padding: 0.5em;
+  margin: 0.05em;
+  width: 50%;
+  border: 0.2px solid #cdcdcd;
+}
+.game-container .game-board h3 {
+  text-align: center;
+}
+.game-container .game-board .board-line {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.game-container .game-board .board-line .tile, .game-container .game-board .board-line .tile-enemy {
+  padding: 0;
+  margin: 0.05em;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+}
+.game-container .game-board .board-line .tile img, .game-container .game-board .board-line .tile-enemy img {
+  width: 100%;
+}
+
+#lobby-chat {
+  width: 50%;
+  height: 30em;
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #e6e6e6;
+  overflow: auto;
+}
+
+#lobby-players {
+  width: 48%;
+  height: 30em;
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #e6e6e6;
+  overflow: auto;
+}
+
+.lobby-player {
+  padding: 0.5em;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #d9d9d9;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 12px solid #aaa;
+  border-color: #aaa transparent #aaa transparent;
+  animation: lds-dual-ring 2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#alert-text-message {
+  display: absolute;
+  font-size: 10em;
+  top: 50%;
+  right: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
