@@ -1,6 +1,13 @@
 # Sinking Ships
 A multiplayer battleship strategy game
 
+### To Run
+
+You need to have Node.JS installed.
+Run the server.js on the command line using the command:
+
+node server.js
+
 ### Features
 
 * Lobby with chat
